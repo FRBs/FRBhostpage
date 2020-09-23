@@ -77,7 +77,7 @@ def build_frbs(out_path='./html_tables'):
 def build_hosts(out_path='./html_tables'):
     hosts_tbl, host_tbl_units = frbgalaxy.build_table_of_hosts()
 
-    host_formats = dict(Mstar='0.1f', M_r='0.2f',
+    host_formats = dict(M_r, u-r, Mstar='0.1f', M_r='0.2f',
                         Halpha='0.2f', Hbeta='0.2f')
     host_scale = dict(Mstar=1e9, M_r=1.,
                       Halpha=1e-16, Hbeta=1e-16)
