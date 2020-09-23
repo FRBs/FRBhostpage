@@ -75,18 +75,19 @@ def build_frbs(out_path='./html_tables'):
         frb_tbl.to_html(open(filename, 'w'))
 
 def build_hosts(out_path='./html_tables'):
-    hosts_tbl, host_tbl_units = frbgalaxy.build_table_of_hosts()
+    hosts_tbl, host_tbl_units = utils.build_table_of_hosts()
 
-    host_formats = dict(M_r, u-r, Mstar='0.1f', M_r='0.2f',
-                        Halpha='0.2f', Hbeta='0.2f')
-    host_scale = dict(Mstar=1e9, M_r=1.,
-                      Halpha=1e-16, Hbeta=1e-16)
-    host_units = dict(Mstar='mag', M_r='mag',
-                      Halpha='erg/s/cm^2', Hbeta='erg/s/cm^2')
+    host_formats = dict(Mstar='0.2f', SFR_nebular='0.2f', EBV_photom='0.2f', M_r='0.2f', age_mass='0.2f', reff_kpc='0.2f', physical='0.2f',
+                        Halpha='0.2f', Hbeta='0.2f', [OIII] 5007='0.2f', '[NII] 6584'='0.2f')
+    host_scale = dict(Mstar=1e9, SFR_nebular=1., EBV_photom=1., M_r=1., age_mass=1.e-3, reff_kpc=1., physical=1.,
+                      Halpha=1e-16, Hbeta=1e-16, '[OIII] 5007'=1e-16, '[NII] 6584'=1e-16)
+    host_units = dict(Mstar='Msun', SFR_nebular='Msun/yr', EBV_photom='mag', M_r='mag', age_mass='Gyr', reff_kpc='kpc', physical='kpc',
+                      Halpha='erg/s/cm^2', Hbeta='erg/s/cm^2','[OIII] 5007'='erg/s/cm^2', '[NII] 6584'='erg/s/cm^2')
 
     # Derived
-    host_derived_properties = dict(Mstar='Stellar Mass', M_r='Absolute r-band mag.')
-    host_emission_properties = dict(Halpha='H&alpha;', Hbeta='H&beta;')
+    host_derived_properties = dict(Mstar='Stellar Mass', SFR_nebular='SFR', EBV_photom='<i>E(B-V)</i>', M_r='Absolute r-band mag.', u-r='rest-frame u-r color',
+                                    age_mass='Mass-weighted age', reff_kpc='Half-light radius', physical='Offset from FRB to host galaxy')
+    host_emission_properties = dict(Halpha='H&alpha;', Hbeta='H&beta;','[OIII] 5007'='[OIII] 5007', '[NII] 6584'='[NII] 6584')
 
     # Photometry -- *way* easier with JSON files
     suffix = 'photom'
