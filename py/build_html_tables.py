@@ -6,6 +6,7 @@ import numpy as np
 
 from frb import frb
 from frb.galaxies import frbgalaxy
+from frb.galaxies import utils
 
 from IPython import embed
 

@@ -1189,9 +1189,10 @@ button {
 	justify-content: space-between;
 	position: relative;
 	min-height: 100vh;
-	width: 100%;
+	width: 1000px;
 	padding: 4rem 2rem;
 	z-index: 3;
+	margin: auto;
 }
 
 	#wrapper:before {
